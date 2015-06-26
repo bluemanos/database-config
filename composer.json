@@ -1,0 +1,23 @@
+{
+    "name": "bluemanos/database-config",
+    "description": "A package for the Laravel PHP Framework that allow developers to easily add user-configurable settings to their app and packages - saved in database",
+    "authors": [
+        {
+            "name": "Szymon Bluma",
+            "email": "szbluma@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Bluemanos\\DatabaseConfig": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
