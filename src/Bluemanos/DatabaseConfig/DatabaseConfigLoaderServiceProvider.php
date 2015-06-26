@@ -42,6 +42,6 @@ class DatabaseConfigLoaderServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return [];
+        return array();
     }
 }

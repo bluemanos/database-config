@@ -24,7 +24,7 @@ class CreateDbsettingsTable extends Migration
             $table->string('type');
             $table->string('environment')->nullable();
 
-            $table->unique(['package', 'key', 'environment']);
+            $table->unique(array('package', 'key', 'environment'));
         });
     }
 

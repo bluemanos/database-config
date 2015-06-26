@@ -11,7 +11,7 @@ class DatabaseConfigLoaderModel extends Eloquent\Model
 
     protected $table = 'dbsettings';
 
-    protected $guarded = [];
+    protected $guarded = array();
 
     public static function exists($group, $package = null)
     {
@@ -55,24 +55,24 @@ class DatabaseConfigLoaderModel extends Eloquent\Model
         if (is_null($model)) {
             //Check if we need to do special array handling
             if ($arrayHandling) { // we are setting a subset of an array
-                $array = [];
+                $array = array();
                 self::buildArrayPath($keyExploded, $value, $array);
                 $value = serialize($array);
                 $type = 'array';
             }
 
-            self::create([
+            self::create(array(
                     'environment' => $environment,
                     'package' => $package,
                     'group' => $group,
                     'key' => $key,
                     'value' => $value,
                     'type' => $type,
-                ]);
+            ));
         } else {
             //Check if we need to do special array handling
             if ($arrayHandling) { // we are setting a subset of an array
-                $array = [];
+                $array = array();
                 self::buildArrayPath($keyExploded, $value, $array);
 
                 //do we need to merge?
