@@ -20,9 +20,10 @@ class DatabaseConfigLoaderModel extends Eloquent\Model
 
     public static function fetchSettings($environment, $package, $group)
     {
-        $model = self::WhereIn('id', function ($q) use ($environment) {
+        $tableName = self::getTable();
+        $model = self::WhereIn('id', function ($q) use ($environment, $tableName) {
             $q->select(DB::raw('COALESCE(MIN(CASE WHEN environment = "'.$environment.'" THEN id END), MIN(id))'))
-                ->from((new self())->getTable())
+                ->from($tableName)
                 ->groupBy('package', 'key');
         });
 
